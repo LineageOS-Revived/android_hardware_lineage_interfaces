@@ -80,6 +80,10 @@ LOCAL_MODULE := android.hardware.wifi@1.0-service.legacy
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CPPFLAGS := -Wall -Werror -Wextra
+ifeq ($(TARGET_ARCH),arm)
+    LOCAL_CPPFLAGS += -DARCH_ARM_32
+endif
+
 LOCAL_SRC_FILES := \
     service.cpp
 LOCAL_SHARED_LIBRARIES := \
